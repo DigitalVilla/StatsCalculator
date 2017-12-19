@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Statistics Calculator</title>
+</head>
+
+<body>
+	<div class="container">
+		<h2 id="title">Statistics Calculator</h2>
+
+		<div class="main-btns">
+			<input id="input" type="text" placeholder="Enter Numbers" />
+			<button id="add" onclick="add"> Add</button>
+		</div>
+
+		<button id="calc">Calculate</button>
+
+		<ul name="picker" id="picker">
+			<div class="block2">
+				<li value="5">
+					<a class="active" href="#">Total</a>
+				</li>
+				<li value="3">
+					<a href="#">Range</a>
+				</li>
+				<li value="4">
+					<a href="#">Count</a>
+				</li>
+			</div>
+			<div class="block1">
+				<li value="0" autofocus>
+					<a href="#">Mean</a>
+				</li>
+				<li value="1">
+					<a href="#">Median</a>
+				</li>
+				<li value="2">
+					<a href="#">Mode</a>
+				</li>
+			</div>
+		</ul>
+		<div id="displayScreen">
+			<span id="displayTotal">
+				<h3 id="display">00.00</h3>
+			</span>
+			<span id="displayNum">
+				<p id='numbersList'></p>
+				<a href="#" id="btnDisplayNum">View Numbers</a>
+			</span>
+		</div>
+
+		<div class="settings">
+			<button id="reset" class="btnSet">Reset</button>
+			<button id="info" class="btnSet">i</button>
+		</div>
+
+		<div id="infoBlock" style="display:none;">
+
+			<br>
+			<h3>INSTRUCTIONS</h3>
+			<p>1) "Add" all numbers one by one.<br>2) When done press "Calculate". <br> 3) Select a calculation. <br> 4) "View Numbers" (optional). <br> 5) "Reset" to start again.</p>
+			<br>
+
+			<h3>CALCULATIONS</h3>
+			<p>TOTAL = Sum of all numbers.<br> COUNT = Amount of numbers added.<br> RANGE = Diference between lowest and highest number.<br> MEAN = Total divided by Count (average).<br> MEDIAN = The exact middle number or the Mean of both middle numbers.<br> MODE = The number that is repeated the most.</p>
+			<button id="xOut">Close</button>
+		</div>
+	</div>
+	<script src="js/script.js"> </script>
+</body>
+</html>
