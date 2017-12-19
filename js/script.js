@@ -1,26 +1,28 @@
-var numbers, total, count, mean, median, mode, range, enable, btnOn, numMapping, i;
-var btnDisplay = document.getElementById("btnDisplayNum");
+var numbers, total, count, mean, median, mode, range, enable, btnOn, numMapping, i, elemnt;
+
 var numberslist = document.getElementById("numbersList");
 var display = document.getElementById("display");
 var input = document.getElementById("input");
 var infoB = document.getElementById("infoBlock");
+var startBtn = document.getElementById("startbtn");
 init();
 
-document.addEventListener('keypress', function vet(e) {
+//Key "Enter" Also adds number 
+document.addEventListener('keypress', function (e) {
     if (e.keyCode == 13) {
         btnAdd();
     }
 });
 
-document.addEventListener('click', function clickBtns(e) {
-
+//
+document.addEventListener('click', function (e) {
     if (btnOn) {
         if (e.target.id == 'add') {
             btnAdd();
         } else if (e.target.id == 'calc') {
             btnCalculate();
             display.textContent = total;
-            input.placeholder = "Reset Calculator..."
+            input.placeholder = "Reset to continue..."
             btnOn = false;
         }
     }
@@ -43,22 +45,15 @@ document.addEventListener('click', function clickBtns(e) {
         } else if (e.target.innerText == 'Total') {
             display.textContent = total;
             displayCalcs(e);
-        } else if (e.target.id == 'btnDisplayNum') {
-            if (!btnOn) {
-                e.target.style.display = "none";
-                numberslist.style.display = "block";
-                numberslist.textContent = String(numbers);
-            }
         }
     }
     if (e.target.id == 'info') {
         infoB.style.display = "block";
 
     }
-    if (e.target.id == 'xOut') {
+    if (e.target.id == 'xOut' || e.target.id == 'reset') {
         infoB.style.display = "none";
     }
-
 
     if (e.target.id == 'reset') {
         init();
@@ -71,6 +66,10 @@ function btnAdd() {
         numbers.push(number);
         input.value = "";
         enable = true;
+
+        // numberslist.style.display = "block";
+        numberslist.textContent = String(numbers);
+
     } else {
         input.value = "Enter a Valid Number!"
         i = "del";
@@ -87,7 +86,7 @@ function btnCalculate() {
     calculateMedian();
     calculateMode();
     calculateRange();
-
+    numberslist.textContent = String(numbers);
     console.log(numbers, " = ", total)
 };
 
@@ -133,7 +132,11 @@ function calculateMode() {
             mode = number
         }
     });
-    return +mode;
+    if (greatestFreq = 0) {
+        mode = 00;
+    }
+    return mode;
+
 };
 
 function calculateRange() {
@@ -142,7 +145,7 @@ function calculateRange() {
 };
 
 function displayCalcs(e) {
-    var elemnt = document.querySelector('.active');
+    elemnt = document.querySelector('.active');
     elemnt.className = '';
     e.target.className = 'active';
 }
@@ -161,7 +164,9 @@ function init() {
     display.textContent = "00.00";
     input.value = "";
     input.placeholder = "Enter a Number...";
-    btnDisplay.style.display = "block";
-    numberslist.style.display = "none";
-    numberslist.textContent = "";
+    numberslist.textContent = "Values list";
+    //unselect all all elements and select the startbtn only 
+    elemnt = document.querySelector('.active');
+    elemnt.className = '';
+    startBtn.className = 'active';
 };
