@@ -114,7 +114,7 @@ function calculateMedian() {
     //if even m = mean of middles
     var indx = Math.floor(count / 2)
     if (count % 2 == 0) {
-        median = (numbers[indx] - numbers[indx - 1]) / 2
+        median = (numbers[indx] + numbers[indx - 1]) / 2
     } else {
         median = numbers[indx]
     }
